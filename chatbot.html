@@ -15,43 +15,68 @@
     <script type="text/babel">
       function ChatInput({ chatMessages, setChatMessages }) {
         const [inputText, setInputText] = React.useState('');
+        const [isLoading, setIsLoading] = React.useState(false)
 
         function handleInput(event) {
           setInputText(event.target.value);
         };
 
-        function sendMessage() {
-          const newChatMessages = [
-            ...chatMessages,
-            {
-              message: inputText,
-              sender: 'user',
-              id: crypto.randomUUID()
-            }
-          ]
+        async function sendMessage() {
+          if (isLoading === false && inputText != ''){
+            const newChatMessages = [
+              ...chatMessages,
+              {
+                message: inputText,
+                sender: 'user',
+                id: crypto.randomUUID()
+              }
+            ]
 
-          setChatMessages(newChatMessages);
+            setChatMessages(newChatMessages);
 
-          const response = Chatbot.getResponse(inputText);
-          
-          setChatMessages([
-            ...newChatMessages,
-            {
-              message: response,
-              sender: 'robot',
-              id: crypto.randomUUID()
-            }
-          ]);
+            setInputText('');
+            setIsLoading(true);
 
-          setInputText('');
+            setChatMessages([
+              ...newChatMessages,
+              {
+                message: 'Loading...',
+                sender: 'robot',
+                id: crypto.randomUUID()
+              }
+            ]);
+
+            const response = await Chatbot.getResponseAsync(inputText);
+
+            setIsLoading(false);
+            
+            setChatMessages([
+              ...newChatMessages,
+              {
+                message: response,
+                sender: 'robot',
+                id: crypto.randomUUID()
+              }
+            ]);
+          }
+        };
+
+        function handleKeyDown() {
+          if (event.key === 'Enter'){
+            sendMessage()
+          }
+          else if (event.key === 'Escape') {
+            setInputText('');
+          }
         };
 
         return (
           <>
-            <input 
+            <input
               placeholder="Send a message to Chatbot" 
               size="30"
               onChange={handleInput}
+              onKeyDown={handleKeyDown}
               value={inputText}
             />
             <button onClick={sendMessage}>Send</button>
