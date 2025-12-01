@@ -5,7 +5,7 @@ import ChatMessages from './components/ChatMessages'
 import './App.css'
 
 function App() {
-  const [chatMessages, setChatMessages] = useState([]); // Destructuring the array
+  const [chatMessages, setChatMessages] = useState(JSON.parse(localStorage.getItem('messages'))); // Destructuring the array
 
   useEffect(() => {
     Chatbot.addResponses({
@@ -13,6 +13,10 @@ function App() {
       "Where do i live?": "You live in the city of Barra Mansa in the State of Rio de Janeiro",
     })
   }, [])
+
+  useEffect(() => {
+    localStorage.setItem('messages', JSON.stringify(chatMessages))
+  }, [chatMessages])
 
   return (
     <div className="app-container">
