@@ -72,6 +72,11 @@ function ChatInput({ chatMessages, setChatMessages }) {
     }
   };
 
+  function handleClearMessages() {
+    setChatMessages([])
+    localStorage.setItem('messages', JSON.stringify([]))
+  }
+
   return (
     <div className="chat-input-container">
       <input
@@ -87,6 +92,12 @@ function ChatInput({ chatMessages, setChatMessages }) {
         className="send-button"
       >
         Send
+      </button>
+      <button 
+        onClick={handleClearMessages}
+        className="clear-button"
+      >
+        Clear
       </button>
     </div>
   );
