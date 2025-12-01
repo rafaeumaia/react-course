@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import { Chatbot } from 'supersimpledev'
 import dayjs from 'dayjs'
-import LoandigMessage from '../assets/loading-spinner.gif'
 import './ChatInput.css'
 
 function ChatInput({ chatMessages, setChatMessages }) {
@@ -42,7 +41,7 @@ function ChatInput({ chatMessages, setChatMessages }) {
       setChatMessages([
         ...newChatMessages,
         {
-          message: <img className="loading-message" src={LoandigMessage}/>,
+          message: '__loading__',
           sender: 'robot',
           id: crypto.randomUUID()
         }
