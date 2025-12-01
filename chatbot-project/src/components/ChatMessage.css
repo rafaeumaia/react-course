@@ -9,7 +9,7 @@
   align-items: start;
 }
 
-.chat-message-text {
+.chat-message-textbox {
   background-color: rgb(238, 238, 238);
   padding: 15px 20px;
   border-radius: 10px;
@@ -24,4 +24,13 @@
   height: 45px;
   border-radius: 45px;
   object-fit: cover;
+}
+
+.chat-message-text {
+  margin-bottom: 5px;
+}
+
+.chat-message-time {
+  color: rgb(122, 122, 122);
+  font-size: 15px;
 }

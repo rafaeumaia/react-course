@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { Chatbot } from 'supersimpledev'
+import dayjs from 'dayjs'
 import LoandigMessage from '../assets/loading-spinner.gif'
 import './ChatInput.css'
 
@@ -7,18 +8,29 @@ function ChatInput({ chatMessages, setChatMessages }) {
   const [inputText, setInputText] = useState('');
   const [isLoading, setIsLoading] = useState(false)
 
+  const [timeSent, setTimeSent] = useState(() => {
+    const timeInMiliseconds = dayjs().valueOf();
+
+    return dayjs(timeInMiliseconds).format('h:mma')
+  })
+
   function handleInput(event) {
     setInputText(event.target.value);
   };
 
   async function sendMessage() {
+    const timeInMiliseconds = dayjs().valueOf();
+    setTimeSent(dayjs(timeInMiliseconds).format('h:mma'))
+    console.log(timeSent)
+
     if (isLoading === false && inputText != ''){
       const newChatMessages = [
         ...chatMessages,
         {
           message: inputText,
           sender: 'user',
-          id: crypto.randomUUID()
+          id: crypto.randomUUID(),
+          time: timeSent
         }
       ]
 
@@ -45,7 +57,8 @@ function ChatInput({ chatMessages, setChatMessages }) {
         {
           message: response,
           sender: 'robot',
-          id: crypto.randomUUID()
+          id: crypto.randomUUID(),
+          time: timeSent
         }
       ]);
     }
