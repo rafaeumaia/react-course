@@ -1,16 +1,16 @@
-import './header.css'
-import './HomePage.css'
+import "./header.css";
+import "./HomePage.css";
 
 function HomePage() {
   return (
     <>
+      <title>Ecommerce Project</title>
+
       <div class="header">
         <div class="left-section">
           <a href="index.html" class="header-link">
-            <img class="logo"
-              src="images/logo-white.png" />
-            <img class="mobile-logo"
-              src="images/mobile-logo-white.png" />
+            <img class="logo" src="images/logo-white.png" />
+            <img class="mobile-logo" src="images/mobile-logo-white.png" />
           </a>
         </div>
 
@@ -24,7 +24,6 @@ function HomePage() {
 
         <div class="right-section">
           <a class="orders-link header-link" href="orders.html">
-
             <span class="orders-text">Orders</span>
           </a>
 
@@ -39,8 +38,10 @@ function HomePage() {
         <div class="products-grid">
           <div class="product-container">
             <div class="product-image-container">
-              <img class="product-image"
-                src="images/products/athletic-cotton-socks-6-pairs.jpg" />
+              <img
+                class="product-image"
+                src="images/products/athletic-cotton-socks-6-pairs.jpg"
+              />
             </div>
 
             <div class="product-name limit-text-to-2-lines">
@@ -48,16 +49,14 @@ function HomePage() {
             </div>
 
             <div class="product-rating-container">
-              <img class="product-rating-stars"
-                src="images/ratings/rating-45.png" />
-              <div class="product-rating-count link-primary">
-                87
-              </div>
+              <img
+                class="product-rating-stars"
+                src="images/ratings/rating-45.png"
+              />
+              <div class="product-rating-count link-primary">87</div>
             </div>
 
-            <div class="product-price">
-              $10.90
-            </div>
+            <div class="product-price">$10.90</div>
 
             <div class="product-quantity-container">
               <select>
@@ -88,8 +87,10 @@ function HomePage() {
 
           <div class="product-container">
             <div class="product-image-container">
-              <img class="product-image"
-                src="images/products/intermediate-composite-basketball.jpg" />
+              <img
+                class="product-image"
+                src="images/products/intermediate-composite-basketball.jpg"
+              />
             </div>
 
             <div class="product-name limit-text-to-2-lines">
@@ -97,16 +98,14 @@ function HomePage() {
             </div>
 
             <div class="product-rating-container">
-              <img class="product-rating-stars"
-                src="images/ratings/rating-40.png" />
-              <div class="product-rating-count link-primary">
-                127
-              </div>
+              <img
+                class="product-rating-stars"
+                src="images/ratings/rating-40.png"
+              />
+              <div class="product-rating-count link-primary">127</div>
             </div>
 
-            <div class="product-price">
-              $20.95
-            </div>
+            <div class="product-price">$20.95</div>
 
             <div class="product-quantity-container">
               <select>
@@ -137,8 +136,10 @@ function HomePage() {
 
           <div class="product-container">
             <div class="product-image-container">
-              <img class="product-image"
-                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg" />
+              <img
+                class="product-image"
+                src="images/products/adults-plain-cotton-tshirt-2-pack-teal.jpg"
+              />
             </div>
 
             <div class="product-name limit-text-to-2-lines">
@@ -146,16 +147,14 @@ function HomePage() {
             </div>
 
             <div class="product-rating-container">
-              <img class="product-rating-stars"
-                src="images/ratings/rating-45.png" />
-              <div class="product-rating-count link-primary">
-                56
-              </div>
+              <img
+                class="product-rating-stars"
+                src="images/ratings/rating-45.png"
+              />
+              <div class="product-rating-count link-primary">56</div>
             </div>
 
-            <div class="product-price">
-              $7.99
-            </div>
+            <div class="product-price">$7.99</div>
 
             <div class="product-quantity-container">
               <select>
@@ -189,4 +188,4 @@ function HomePage() {
   );
 }
 
-export default HomePage
+export default HomePage;
