@@ -19,7 +19,7 @@ export function Header() {
         <input className="search-bar" type="text" placeholder="Search" />
 
         <button className="search-button">
-          <img className={SearchIcon} />
+          <img className="search-icon" src={SearchIcon} />
         </button>
       </div>
 
