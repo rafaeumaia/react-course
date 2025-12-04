@@ -5,6 +5,8 @@ import "./TrackingPage.css";
 function TrackingPage() {
   return (
     <>
+      <link rel="icon" type="image/svg+xml" href="/tracking-favicon.png" />
+
       <title>Tracking</title>
 
       <Header />
